@@ -13,4 +13,6 @@ public interface UserService {
     User updateUser(String id, UserDto userDto);
 
     User deactivateUser(String id);
+
+    User verifyUser(String id);
 }

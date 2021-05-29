@@ -35,6 +35,11 @@ public class UserController {
         return userService.updateUser(id, userDto);
     }
 
+    @GetMapping("/user/{id}/verify")
+    public User verifyUser(@PathVariable String id){
+        return userService.verifyUser(id);
+    }
+
     @DeleteMapping("/user/{id}")
     public User deactivateUser(@PathVariable String id){
         return userService.deactivateUser(id);

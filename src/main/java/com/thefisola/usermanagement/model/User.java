@@ -1,6 +1,7 @@
 package com.thefisola.usermanagement.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.thefisola.usermanagement.constant.CommonConstant;
 import com.thefisola.usermanagement.constant.UserRole;
 import com.thefisola.usermanagement.constant.UserStatus;
@@ -39,6 +40,7 @@ public class User {
     @Column(nullable = false, length = 20)
     private String mobile;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
@@ -62,6 +64,14 @@ public class User {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstant.DATETIME_FORMAT, timezone = CommonConstant.TIME_ZONE)
     private Date dateDeactivated;
+
+    public boolean isNotVerified(){
+        return !verified;
+    }
+
+    public boolean isDeactivated(){
+        return dateDeactivated != null;
+    }
 
     public void deactivate() {
         status = UserStatus.DEACTIVATED;
