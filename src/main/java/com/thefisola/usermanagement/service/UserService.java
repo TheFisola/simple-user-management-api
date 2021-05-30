@@ -1,12 +1,13 @@
 package com.thefisola.usermanagement.service;
 
 import com.thefisola.usermanagement.dto.UserDto;
+import com.thefisola.usermanagement.dto.UserQuery;
 import com.thefisola.usermanagement.model.User;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 public interface UserService {
-    List<User> getUsers();
+
+    Page<User> getUsers(UserQuery userQuery);
 
     User registerUser(UserDto userDto);
 

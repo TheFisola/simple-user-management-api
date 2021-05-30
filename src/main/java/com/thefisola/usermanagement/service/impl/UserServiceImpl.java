@@ -1,6 +1,7 @@
 package com.thefisola.usermanagement.service.impl;
 
 import com.thefisola.usermanagement.dto.UserDto;
+import com.thefisola.usermanagement.dto.UserQuery;
 import com.thefisola.usermanagement.event.UserDeactivatedEvent;
 import com.thefisola.usermanagement.event.UserRegisteredEvent;
 import com.thefisola.usermanagement.exception.BaseException;
@@ -10,9 +11,11 @@ import com.thefisola.usermanagement.repository.UserRepository;
 import com.thefisola.usermanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,8 +31,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsers() {
-        return userRepository.findAll();
+    public Page<User> getUsers(UserQuery userQuery) {
+        Pageable pageable = PageRequest.of(userQuery.getPageNumber() > 0 ?
+                userQuery.getPageNumber() - 1 : userQuery.getPageNumber(), userQuery.getPageSize());
+        return userRepository.findAll(pageable);
     }
 
     @Override
@@ -66,7 +71,8 @@ public class UserServiceImpl implements UserService {
 
     private User validateUserId(String id) {
         Optional<User> user = userRepository.findById(id);
-        if (user.isEmpty() || user.get().isDeactivated()) throw new UserNotFoundException("User with Id: '" + id + "' not found");
+        if (user.isEmpty() || user.get().isDeactivated())
+            throw new UserNotFoundException("User with Id: '" + id + "' not found");
         return user.get();
     }
 }

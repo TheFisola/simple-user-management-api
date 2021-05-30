@@ -65,10 +65,12 @@ public class User {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstant.DATETIME_FORMAT, timezone = CommonConstant.TIME_ZONE)
     private Date dateDeactivated;
 
+    @JsonIgnore
     public boolean isNotVerified(){
         return !verified;
     }
 
+    @JsonIgnore
     public boolean isDeactivated(){
         return dateDeactivated != null;
     }
