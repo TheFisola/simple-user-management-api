@@ -4,7 +4,7 @@ import com.thefisola.usermanagement.dto.UserDto;
 import com.thefisola.usermanagement.dto.UserQuery;
 import com.thefisola.usermanagement.event.UserDeactivatedEvent;
 import com.thefisola.usermanagement.event.UserRegisteredEvent;
-import com.thefisola.usermanagement.exception.BaseException;
+import com.thefisola.usermanagement.exception.UnverifiedUserException;
 import com.thefisola.usermanagement.exception.UserNotFoundException;
 import com.thefisola.usermanagement.model.User;
 import com.thefisola.usermanagement.repository.UserRepository;
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User deactivateUser(String id) {
         User user = validateUserId(id);
-        if (user.isNotVerified()) throw new BaseException("You cannot deactivate a user who is not verified");
+        if (user.isNotVerified()) throw new UnverifiedUserException("You cannot deactivate a user who is not verified");
         user.deactivate();
         user = userRepository.save(user);
         eventPublisher.publishEvent(new UserDeactivatedEvent(user));
