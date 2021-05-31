@@ -14,6 +14,8 @@ see application.properties for example
 
 On localhost port is currently set at 7070
 
-Database: Postgres
+- Database: POSTGRES (SQL)
+- Migration: FLYWAY
+- ORM: HIBERNATE
 
 Link to swagger: localhost:7070/swagger-ui.html
