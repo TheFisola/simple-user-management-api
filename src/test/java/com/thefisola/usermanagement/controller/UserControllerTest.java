@@ -52,25 +52,29 @@ class UserControllerTest {
 
     @Test
     void registerUser() {
-        ResponseEntity<User> users = userController.registerUser(Mockito.any());
-        Assertions.assertEquals(HttpStatus.CREATED, users.getStatusCode());
+        ResponseEntity<User> user = userController.registerUser(Mockito.any());
+        Assertions.assertNotNull(user);
+        Assertions.assertEquals(HttpStatus.CREATED, user.getStatusCode());
     }
 
     @Test
     void updateUser() {
-        ResponseEntity<User> users = userController.updateUser(Mockito.anyString(), Mockito.any());
-        Assertions.assertEquals(HttpStatus.OK, users.getStatusCode());
+        ResponseEntity<User> user = userController.updateUser(Mockito.anyString(), Mockito.any());
+        Assertions.assertNotNull(user);
+        Assertions.assertEquals(HttpStatus.OK, user.getStatusCode());
     }
 
     @Test
     void verifyUser() {
         ResponseEntity<User> user = userController.verifyUser(Mockito.any());
+        Assertions.assertNotNull(user);
         Assertions.assertEquals(HttpStatus.OK, user.getStatusCode());
     }
 
     @Test
     void deactivateUser() {
         ResponseEntity<User> user = userController.deactivateUser(Mockito.any());
+        Assertions.assertNotNull(user);
         Assertions.assertEquals(HttpStatus.OK, user.getStatusCode());
     }
 }

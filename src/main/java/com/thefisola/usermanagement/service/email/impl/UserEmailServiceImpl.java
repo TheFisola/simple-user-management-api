@@ -4,7 +4,6 @@ import com.thefisola.usermanagement.model.User;
 import com.thefisola.usermanagement.service.email.AbstractEmailService;
 import com.thefisola.usermanagement.service.email.UserEmailService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 @Service
