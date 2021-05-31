@@ -17,4 +17,3 @@ On localhost port is currently set at 7070
 Database: Postgres
 
 Link to swagger: localhost:7070/swagger-ui.html
-

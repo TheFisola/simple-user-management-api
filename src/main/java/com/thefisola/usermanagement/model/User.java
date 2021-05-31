@@ -72,7 +72,7 @@ public class User {
 
     @JsonIgnore
     public boolean isDeactivated(){
-        return dateDeactivated != null;
+        return dateDeactivated != null && status.equals(UserStatus.DEACTIVATED);
     }
 
     public void deactivate() {

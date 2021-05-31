@@ -2,15 +2,13 @@ package com.thefisola.usermanagement.dto;
 
 import com.thefisola.usermanagement.constant.CommonConstant;
 import com.thefisola.usermanagement.constant.UserRole;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-@Getter
-@Setter
+@Data
 public class UserDto {
 
     @Size(max = 10)
@@ -38,6 +36,5 @@ public class UserDto {
     @NotBlank
     private String password;
 
-    @NotBlank
     private UserRole role;
 }

@@ -1,4 +1,4 @@
-package com.thefisola.usermanagement.exception.handler;
+package com.thefisola.usermanagement.exception.handler.model;
 
 import lombok.Builder;
 import lombok.Getter;
