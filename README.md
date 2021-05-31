@@ -1,7 +1,8 @@
 # USER MANAGEMENT APP
 
 To Run you'd need to provide the following credentials;
- - spring.mail.username=
+
+- spring.mail.username=
 - spring.mail.password=
 - spring.flyway.url=
 - spring.flyway.user=

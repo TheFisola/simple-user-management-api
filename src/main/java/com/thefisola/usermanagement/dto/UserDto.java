@@ -1,6 +1,6 @@
 package com.thefisola.usermanagement.dto;
 
-import com.thefisola.usermanagement.constant.CommonConstant;
+import com.thefisola.usermanagement.constant.CommonConstants;
 import com.thefisola.usermanagement.constant.UserRole;
 import lombok.Data;
 
@@ -25,7 +25,7 @@ public class UserDto {
 
     @Size(max = 100)
     @NotBlank
-    @Pattern(regexp = CommonConstant.EMAIL_REGEX_PATTERN, message = "Email should be valid")
+    @Pattern(regexp = CommonConstants.EMAIL_REGEX_PATTERN, message = "Email should be valid")
     private String email;
 
     @Size(max = 20)

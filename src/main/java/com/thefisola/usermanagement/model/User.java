@@ -2,7 +2,7 @@ package com.thefisola.usermanagement.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.thefisola.usermanagement.constant.CommonConstant;
+import com.thefisola.usermanagement.constant.CommonConstants;
 import com.thefisola.usermanagement.constant.UserRole;
 import com.thefisola.usermanagement.constant.UserStatus;
 import com.thefisola.usermanagement.dto.UserDto;
@@ -56,22 +56,22 @@ public class User {
     private UserStatus status = UserStatus.REGISTERED;
 
     @CreatedDate
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstant.DATETIME_FORMAT, timezone = CommonConstant.TIME_ZONE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstants.DATETIME_FORMAT, timezone = CommonConstants.TIME_ZONE)
     private Date dateRegistered;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstant.DATETIME_FORMAT, timezone = CommonConstant.TIME_ZONE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstants.DATETIME_FORMAT, timezone = CommonConstants.TIME_ZONE)
     private Date dateVerified;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstant.DATETIME_FORMAT, timezone = CommonConstant.TIME_ZONE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = CommonConstants.DATETIME_FORMAT, timezone = CommonConstants.TIME_ZONE)
     private Date dateDeactivated;
 
     @JsonIgnore
-    public boolean isNotVerified(){
+    public boolean isNotVerified() {
         return !verified;
     }
 
     @JsonIgnore
-    public boolean isDeactivated(){
+    public boolean isDeactivated() {
         return dateDeactivated != null && status.equals(UserStatus.DEACTIVATED);
     }
 

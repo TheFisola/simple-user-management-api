@@ -24,27 +24,27 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<Page<User>> getUsers(@Valid UserQuery userQuery){
+    public ResponseEntity<Page<User>> getUsers(@Valid UserQuery userQuery) {
         return new ResponseEntity<>(userService.getUsers(userQuery), HttpStatus.OK);
     }
 
     @PostMapping("/user")
-    public ResponseEntity<User> registerUser(@RequestBody @Valid UserDto userDto){
+    public ResponseEntity<User> registerUser(@RequestBody @Valid UserDto userDto) {
         return new ResponseEntity<>(userService.registerUser(userDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/user/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody @Valid UserDto userDto){
+    public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody @Valid UserDto userDto) {
         return new ResponseEntity<>(userService.updateUser(id, userDto), HttpStatus.OK);
     }
 
     @GetMapping("/user/{id}/verify")
-    public ResponseEntity<User> verifyUser(@PathVariable String id){
+    public ResponseEntity<User> verifyUser(@PathVariable String id) {
         return new ResponseEntity<>(userService.verifyUser(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/user/{id}")
-    public ResponseEntity<User> deactivateUser(@PathVariable String id){
+    public ResponseEntity<User> deactivateUser(@PathVariable String id) {
         return new ResponseEntity<>(userService.deactivateUser(id), HttpStatus.OK);
     }
 }

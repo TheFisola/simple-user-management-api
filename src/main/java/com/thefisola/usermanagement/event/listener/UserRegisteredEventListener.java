@@ -19,7 +19,7 @@ public class UserRegisteredEventListener {
 
     @Async
     @EventListener
-    void handle(UserRegisteredEvent userRegisteredEvent) {
+    public void handle(UserRegisteredEvent userRegisteredEvent) {
         userEmailService.sendUserVerificationMail(userRegisteredEvent.getUser());
     }
 }
