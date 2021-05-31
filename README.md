@@ -13,10 +13,12 @@ To Run you'd need to provide the following credentials;
 
 see application.properties for example
 
-On localhost port is currently set at 7070
-
 - Database: POSTGRES (SQL)
 - Migration: FLYWAY
 - ORM: HIBERNATE
+
+For local developement
+create a application-dev.properties file with the necessary credentials
+On localhost port is currently set at 7070
 
 Link to swagger: localhost:7070/swagger-ui.html
